@@ -11,7 +11,9 @@ dependencies:
     sdk: flutter
   phone_numbers_parser: ^7.0.0+1
   font_awesome_flutter:
-    path: ../font_awesome_flutter
+    git:
+      url: https://github.com/sofiakb/font_awesome_flutter.git
+      ref: main
 
 assets:
   - assets/
