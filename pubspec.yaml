@@ -1,0 +1,18 @@
+name: sofiakb_elements
+description: The packages allows to easily configure your project.
+maintainer: Sofiane Akbly
+version: 0.0.1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  phone_numbers_parser: ^7.0.0+1
+  font_awesome_flutter:
+    path: ../font_awesome_flutter
+
+assets:
+  - assets/
+  - assets/img/
