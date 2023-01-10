@@ -4,7 +4,7 @@ class EmailValidator extends Validator {
   @override
   bool isValid(String? value, {bool strict = true}) =>
       super.isValid(value, strict: strict) &&
-      (RegExp(r'^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$')).hasMatch(value ?? '');
+      (RegExp(r'^[\w-.+]+@([\w-]+\.)+[\w-]{2,4}$')).hasMatch(value ?? '');
 
   @override
   String? errorMessage(
