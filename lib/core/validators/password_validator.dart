@@ -36,10 +36,10 @@ class PasswordValidator extends Validator {
 
   @override
   String? errorMessage(
-      {String? message, String? value, bool override = false}) {
+      {String? message, String? value, bool override = false, bool verifyFormat = true}) {
     bool isCorrect = _isPasswordStrongEnough(value);
     return super.errorMessage(
-        message: isCorrect
+        message: verifyFormat == false || isCorrect
             ? "le mot de passe"
             : "Le mot de passe n'est pas assez fort. \nIl doit contenir au moins\n${requirementsToString().replaceAll(", ", "SEPLINE").split("SEPLINE").map((e) => " - $e").join("\n")}",
         override: isCorrect ? override : true);

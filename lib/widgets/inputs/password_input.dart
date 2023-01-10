@@ -88,7 +88,7 @@ class _PasswordInputState extends State<PasswordInput> {
           hidden ? TextInputType.text : TextInputType.visiblePassword,
       validator: widget.validator ?? (widget.verifyFormat ? PasswordValidator().validator : null),
       validatorMessage:
-          widget.validatorMessage ?? PasswordValidator().errorMessage(),
+          widget.validatorMessage ?? PasswordValidator().errorMessage(verifyFormat: widget.verifyFormat),
     );
   }
 }
