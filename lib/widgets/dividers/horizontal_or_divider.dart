@@ -13,18 +13,18 @@ class HorizontalOrDivider extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(children: <Widget>[
       Expanded(
-        child: new Container(
+        child: Container(
             margin: EdgeInsets.only(left: 10.0, right: spacing),
-            child: Divider(
+            child: Container(
               color: color,
               height: height,
             )),
       ),
       Text(label, style: TextStyle(color: color)),
       Expanded(
-        child: new Container(
+        child: Container(
             margin: EdgeInsets.only(left: spacing, right: 10.0),
-            child: Divider(
+            child: Container(
               color: color,
               height: height,
             )),
