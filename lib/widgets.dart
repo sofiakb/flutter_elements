@@ -48,6 +48,9 @@ export 'widgets/snackbars/custom_snackbar.dart';
 export 'widgets/snackbars/error_snackbar.dart';
 export 'widgets/snackbars/success_snackbar.dart';
 
+/// dividers
+export 'widgets/dividers/dash_divider.dart';
+export 'widgets/dividers/horizontal_or_divider.dart';
+
 // commons
 export 'widgets/x_asset_image.dart';
-export 'widgets/dash_divider.dart';
