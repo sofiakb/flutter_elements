@@ -69,7 +69,7 @@ Add this in pubspec.yaml
 ```yaml
 sofiakb_flutter_elements:
   git:
-    url: https://github.com/sofiakb/flutter_elements.git
+    url: git@github.com:flutter_elements.git
     ref: main
 ```
 
