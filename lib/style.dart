@@ -111,9 +111,11 @@ class AppStyle {
   // colors
   Color _primaryColor = const Color(0xFF7380EC);
   Color _secondaryColor = const Color(0xFF000000);
+  Color _lightColor = const Color(0xFF9FA6B2);
 
   static Color primaryColor = AppStyle()._primaryColor;
   static Color secondaryColor = AppStyle()._secondaryColor;
+  static Color lightColor = AppStyle()._lightColor;
 
   static EdgeInsets Function(
       {double bottom,
@@ -151,4 +153,6 @@ class AppStyle {
   static setSecondaryColor(Color value) => AppStyle()._secondaryColor = value;
 
   static setPrimaryColor(Color value) => AppStyle()._primaryColor = value;
+
+  static setLightColor(Color value) => AppStyle()._lightColor = value;
 }
