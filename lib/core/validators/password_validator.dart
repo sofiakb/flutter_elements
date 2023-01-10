@@ -42,7 +42,7 @@ class PasswordValidator extends Validator {
         message: verifyFormat == false || isCorrect
             ? "le mot de passe"
             : "Le mot de passe n'est pas assez fort. \nIl doit contenir au moins\n${requirementsToString().replaceAll(", ", "SEPLINE").split("SEPLINE").map((e) => " - $e").join("\n")}",
-        override: isCorrect ? override : true);
+        override: verifyFormat == false || isCorrect ? override : true);
   }
 
   String requirementsToString() {
