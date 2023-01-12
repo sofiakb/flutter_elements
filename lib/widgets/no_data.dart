@@ -29,7 +29,7 @@ class NoData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<ByteData>(
-      future: rootBundle.load('../assets/img/no-data.png'),
+      future: rootBundle.load('../../assets/img/no-data.png'),
       builder: (context, snapshot) {
         var data = snapshot.data as ByteData;
         return Column(
