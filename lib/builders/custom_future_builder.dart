@@ -43,17 +43,19 @@ class CustomFutureBuilder<T> extends StatelessWidget {
                 Duration(seconds: 1),
                 () async => showDialog(
                     context: context,
-                    builder: (BuildContext context) {
-                      print("heeerree in custom future");
-                      return defaultError && !useSnapshotErrorMessage ? ErrorDialog() : ErrorDialog(text: useSnapshotErrorMessage ? snapshot.error.toString() : errorMessage);
-                    }));
+                    builder: (BuildContext context) =>
+                        defaultError && !useSnapshotErrorMessage
+                            ? ErrorDialog()
+                            : ErrorDialog(
+                                text: useSnapshotErrorMessage
+                                    ? snapshot.error.toString()
+                                    : errorMessage)));
             return SizedBox.shrink();
           }
 
           try {
             var dataArray = snapshot.data as List;
-            if (defaultEmpty &&
-                (snapshot.data == null || dataArray.isEmpty)) {
+            if (defaultEmpty && (snapshot.data == null || dataArray.isEmpty)) {
               return NoData(text: defaultEmptyMessage);
             }
           } catch (e) {

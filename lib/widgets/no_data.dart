@@ -1,13 +1,8 @@
 import 'dart:convert';
-import 'dart:io';
-import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:sofiakb_elements/src/utils/images.dart';
 import 'package:sofiakb_elements/style.dart';
-
-import 'package:flutter/services.dart' show rootBundle;
-
 
 class NoData extends StatelessWidget {
   const NoData(
@@ -38,7 +33,8 @@ class NoData extends StatelessWidget {
           width: width,
           height: height,
           fit: fit,
-        ),/*Image.asset(
+        ),
+        /*Image.asset(
           path ?? "assets/img/no-data.png",
           // package: path == null ? "elements" : null,
           width: width,
@@ -53,8 +49,8 @@ class NoData extends StatelessWidget {
                 color: Colors.blueGrey,
                 fontWeight: FontWeight.bold,
                 fontSize:
-                (Theme.of(context).textTheme.bodyText1?.fontSize ?? 14) *
-                    1.2),
+                    (Theme.of(context).textTheme.bodyText1?.fontSize ?? 14) *
+                        1.2),
           ),
         ),
         if (subtext != null)
