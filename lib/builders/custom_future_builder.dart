@@ -36,9 +36,6 @@ class CustomFutureBuilder<T> extends StatelessWidget {
             return Center(child: loader ?? const CircularProgressIndicator());
           }
 
-          print("withErrorDialog: ${snapshot.error != null && withErrorDialog}");
-          print("error: ${snapshot.error}");
-
           if (snapshot.error != null && withErrorDialog) {
             print(snapshot.error);
             print(snapshot.stackTrace);
@@ -48,7 +45,7 @@ class CustomFutureBuilder<T> extends StatelessWidget {
                     context: context,
                     builder: (BuildContext context) {
                       print("heeerree in custom future");
-                      return defaultError && !useSnapshotErrorMessage ? ErrorDialog() : ErrorDialog(text: useSnapshotErrorMessage ? snapshot.error : errorMessage);
+                      return defaultError && !useSnapshotErrorMessage ? ErrorDialog() : ErrorDialog(text: useSnapshotErrorMessage ? snapshot.error.toString() : errorMessage);
                     }));
             return SizedBox.shrink();
           }
