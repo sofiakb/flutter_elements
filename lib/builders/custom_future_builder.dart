@@ -44,6 +44,7 @@ class CustomFutureBuilder<T> extends StatelessWidget {
                 () async => showDialog(
                     context: context,
                     builder: (BuildContext context) {
+                      print("heeerree in custom future");
                       return defaultError && !useSnapshotErrorMessage ? ErrorDialog() : ErrorDialog(text: useSnapshotErrorMessage ? snapshot.error : errorMessage);
                     }));
             return SizedBox.shrink();
