@@ -1,5 +1,11 @@
+import 'dart:io';
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:sofiakb_elements/style.dart';
+
+import 'package:flutter/services.dart' show rootBundle;
+
 
 class NoData extends StatelessWidget {
   const NoData(
@@ -22,32 +28,44 @@ class NoData extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Image.asset(
-          path ?? "assets/img/no-data.png",
-          // package: path == null ? "elements" : null,
-          width: width,
-          height: height,
-          fit: fit,
-        ),
-        Padding(
-          padding: AppStyle.padding(top: 2, bottom: 1),
-          child: Text(
-            text ?? "Oups ! Aucun résultat trouvé",
-            style: TextStyle(
-                color: Colors.blueGrey,
-                fontWeight: FontWeight.bold,
-                fontSize:
-                    (Theme.of(context).textTheme.bodyText1?.fontSize ?? 14) *
-                        1.2),
-          ),
-        ),
-        if (subtext != null)
-          Text(
-            subtext!,
-          )
-      ],
+    return FutureBuilder<ByteData>(
+      future: rootBundle.load('../assets/img/no-data.png'),
+      builder: (context, snapshot) {
+        var data = snapshot.data as ByteData;
+        return Column(
+          children: [
+            Image.memory(
+              data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes),
+              // package: path == null ? "elements" : null,
+              width: width,
+              height: height,
+              fit: fit,
+            ),Image.asset(
+              path ?? "assets/img/no-data.png",
+              // package: path == null ? "elements" : null,
+              width: width,
+              height: height,
+              fit: fit,
+            ),
+            Padding(
+              padding: AppStyle.padding(top: 2, bottom: 1),
+              child: Text(
+                text ?? "Oups ! Aucun résultat trouvé",
+                style: TextStyle(
+                    color: Colors.blueGrey,
+                    fontWeight: FontWeight.bold,
+                    fontSize:
+                        (Theme.of(context).textTheme.bodyText1?.fontSize ?? 14) *
+                            1.2),
+              ),
+            ),
+            if (subtext != null)
+              Text(
+                subtext!,
+              )
+          ],
+        );
+      }
     );
   }
 }
