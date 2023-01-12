@@ -1,7 +1,9 @@
+import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:sofiakb_elements/src/utils/images.dart';
 import 'package:sofiakb_elements/style.dart';
 
 import 'package:flutter/services.dart' show rootBundle;
@@ -35,7 +37,7 @@ class NoData extends StatelessWidget {
         return Column(
           children: [
             Image.memory(
-              data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes),
+              base64Decode(noDataPng),
               // package: path == null ? "elements" : null,
               width: width,
               height: height,
