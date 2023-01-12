@@ -26,7 +26,7 @@ class NoData extends StatelessWidget {
       children: [
         Image.asset(
           path ?? "assets/img/no-data.png",
-          package: path == null ? "elements" : null,
+          // package: path == null ? "elements" : null,
           width: width,
           height: height,
           fit: fit,
