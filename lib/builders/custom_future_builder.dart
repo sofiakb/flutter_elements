@@ -56,11 +56,17 @@ class CustomFutureBuilder<T> extends StatelessWidget {
           try {
             var dataArray = snapshot.data as List;
             if (defaultEmpty && (snapshot.data == null || dataArray.isEmpty)) {
-              return NoData(text: defaultEmptyMessage);
+              return NoData(
+                  text: useSnapshotErrorMessage
+                      ? snapshot.error.toString()
+                      : errorMessage ?? defaultEmptyMessage);
             }
           } catch (e) {
             if (defaultEmpty && snapshot.data == null) {
-              return NoData(text: defaultEmptyMessage);
+              return NoData(
+                  text: useSnapshotErrorMessage
+                      ? snapshot.error.toString()
+                      : errorMessage ?? defaultEmptyMessage);
             }
           }
 
