@@ -8,12 +8,18 @@ class CustomFutureBuilder<T> extends StatelessWidget {
       required this.builder,
       this.loader,
       this.defaultEmpty = true,
+      this.withErrorDialog = true,
+      this.defaultError = true,
+      this.errorMessage,
       this.defaultEmptyMessage})
       : super(key: key);
 
   final Future<T> future;
   final bool defaultEmpty;
   final String? defaultEmptyMessage;
+  final bool defaultError;
+  final String? errorMessage;
+  final bool withErrorDialog;
   final Widget Function(
       BuildContext context, AsyncSnapshot snapshot, dynamic data) builder;
 
@@ -28,7 +34,7 @@ class CustomFutureBuilder<T> extends StatelessWidget {
             return Center(child: loader ?? const CircularProgressIndicator());
           }
 
-          if (snapshot.error != null) {
+          if (snapshot.error != null && withErrorDialog) {
             print(snapshot.error);
             print(snapshot.stackTrace);
             Future.delayed(
@@ -36,7 +42,7 @@ class CustomFutureBuilder<T> extends StatelessWidget {
                 () async => showDialog(
                     context: context,
                     builder: (BuildContext context) {
-                      return ErrorDialog();
+                      return defaultError ? ErrorDialog() : ErrorDialog(text: errorMessage);
                     }));
             return SizedBox.shrink();
           }
