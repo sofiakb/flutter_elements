@@ -36,7 +36,8 @@ class CustomFutureBuilder<T> extends StatelessWidget {
             return Center(child: loader ?? const CircularProgressIndicator());
           }
 
-          print("withErrorDialog: $withErrorDialog");
+          print("withErrorDialog: ${snapshot.error != null && withErrorDialog}");
+          print("error: ${snapshot.error}");
 
           if (snapshot.error != null && withErrorDialog) {
             print(snapshot.error);
