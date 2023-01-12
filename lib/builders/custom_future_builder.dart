@@ -10,6 +10,7 @@ class CustomFutureBuilder<T> extends StatelessWidget {
       this.defaultEmpty = true,
       this.withErrorDialog = true,
       this.defaultError = true,
+      this.useSnapshotErrorMessage = false,
       this.errorMessage,
       this.defaultEmptyMessage})
       : super(key: key);
@@ -20,6 +21,7 @@ class CustomFutureBuilder<T> extends StatelessWidget {
   final bool defaultError;
   final String? errorMessage;
   final bool withErrorDialog;
+  final bool useSnapshotErrorMessage;
   final Widget Function(
       BuildContext context, AsyncSnapshot snapshot, dynamic data) builder;
 
@@ -42,7 +44,7 @@ class CustomFutureBuilder<T> extends StatelessWidget {
                 () async => showDialog(
                     context: context,
                     builder: (BuildContext context) {
-                      return defaultError ? ErrorDialog() : ErrorDialog(text: errorMessage);
+                      return defaultError ? ErrorDialog() : ErrorDialog(text: useSnapshotErrorMessage ? snapshot.error : errorMessage);
                     }));
             return SizedBox.shrink();
           }
