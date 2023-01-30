@@ -23,7 +23,7 @@ class CustomFutureBuilder<T> extends StatelessWidget {
   final bool withErrorDialog;
   final bool useSnapshotErrorMessage;
   final Widget Function(
-      BuildContext context, AsyncSnapshot snapshot, dynamic data) builder;
+      BuildContext context, AsyncSnapshot snapshot, T data) builder;
 
   final Widget? loader;
 
@@ -70,7 +70,7 @@ class CustomFutureBuilder<T> extends StatelessWidget {
             }
           }
 
-          return builder(context, snapshot, snapshot.data);
+          return builder(context, snapshot, snapshot.data as T);
         });
   }
 }
