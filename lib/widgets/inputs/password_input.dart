@@ -22,7 +22,8 @@ class PasswordInput extends StatefulWidget {
     this.withIcon = false,
     this.onChanged,
     this.autocorrect = false,
-    this.verifyFormat = true
+    this.verifyFormat = true,
+    this.labelIcon
   }) : super(key: key);
 
   final String? hintText;
@@ -46,6 +47,8 @@ class PasswordInput extends StatefulWidget {
   final bool autocorrect;
 
   final bool verifyFormat;
+
+  final IconData? labelIcon;
 
   @override
   State<PasswordInput> createState() => _PasswordInputState();
@@ -76,7 +79,7 @@ class _PasswordInputState extends State<PasswordInput> {
       autocorrect: widget.autocorrect,
       errorMessage: widget.errorMessage,
       labelIcon:
-          widget.withIcon == true ? FontAwesomeIcons.lightLockKeyhole : null,
+          widget.withIcon == true ? widget.labelIcon ?? FontAwesomeIcons.lightLockKeyhole : null,
       required: widget.required,
       suffixIcon: IconButton(
         icon: FaIcon(hidden

@@ -22,6 +22,7 @@ class EmailInput extends StatefulWidget {
     this.validatorMessage,
     this.onChanged,
     this.autocorrect = false,
+    this.labelIcon
   }) : super(key: key);
 
   final String? hintText;
@@ -43,6 +44,8 @@ class EmailInput extends StatefulWidget {
   final Function(String)? onChanged;
 
   final bool autocorrect;
+
+  final IconData? labelIcon;
 
   @override
   State<EmailInput> createState() => _EmailInputState();
@@ -71,7 +74,7 @@ class _EmailInputState extends State<EmailInput> {
       errorMessage: widget.errorMessage,
       onChanged: widget.onChanged,
       autocorrect: widget.autocorrect,
-      labelIcon: widget.withIcon == true ? FontAwesomeIcons.lightAt : null,
+      labelIcon: widget.withIcon == true ? widget.labelIcon ?? FontAwesomeIcons.lightAt : null,
       validator: widget.validator ?? EmailValidator().validator,
       validatorMessage:
           widget.validatorMessage ?? EmailValidator().errorMessage(),

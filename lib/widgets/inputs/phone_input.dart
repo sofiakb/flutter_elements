@@ -20,6 +20,7 @@ class PhoneInput extends StatefulWidget {
     this.validatorMessage,
     this.onChanged,
     this.autocorrect = false,
+    this.labelIcon
   }) : super(key: key);
 
   final String? hintText;
@@ -41,6 +42,8 @@ class PhoneInput extends StatefulWidget {
   final Function(String)? onChanged;
 
   final bool autocorrect;
+
+  final IconData? labelIcon;
 
   @override
   State<PhoneInput> createState() => _PhoneInputState();
@@ -70,7 +73,7 @@ class _PhoneInputState extends State<PhoneInput> {
       onChanged: widget.onChanged,
       autocorrect: widget.autocorrect,
       labelIcon:
-          widget.withIcon == true ? FontAwesomeIcons.lightMobileNotch : null,
+          widget.withIcon == true ? widget.labelIcon ?? FontAwesomeIcons.lightMobileNotch : null,
       validator: widget.validator ?? PhoneValidator().validator,
       validatorMessage:
           widget.validatorMessage ?? PhoneValidator().errorMessage(),
