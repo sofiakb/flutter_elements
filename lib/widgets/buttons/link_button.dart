@@ -18,7 +18,7 @@ class LinkButton extends StatelessWidget {
       text: text,
       style: style ??
           TextStyle(
-              color: color ?? AppStyle.secondaryColor,
+              color: color ?? AppStyle.instance.secondaryColor,
               fontWeight: FontWeight.bold),
       recognizer: TapGestureRecognizer()..onTap = onTap,
     ));

@@ -19,7 +19,7 @@ class ProfileImage extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           border: Border.fromBorderSide(
-              BorderSide(color: AppStyle.secondaryColor, width: borderWidth)),
+              BorderSide(color: AppStyle.instance.secondaryColor, width: borderWidth)),
           borderRadius: AppStyle.roundedCircle),
       child: CircleAvatar(
         radius: radius,

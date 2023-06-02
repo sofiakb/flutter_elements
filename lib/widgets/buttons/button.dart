@@ -34,7 +34,7 @@ class Button extends StatelessWidget {
             ? null
             : MaterialStateProperty.all<Color>((backgroundColor ??
                 style?.backgroundColor ??
-                AppStyle.primaryColor) as Color),
+                AppStyle.instance.primaryColor) as Color),
         foregroundColor: disabled
             ? null
             : MaterialStateProperty.all<Color>((foregroundColor ??

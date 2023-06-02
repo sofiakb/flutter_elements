@@ -63,10 +63,10 @@ class XPadding {
 }
 
 class XRounded {
-  static final XRounded _instance = XRounded._internal();
+  static final XRounded instance = XRounded._internal();
 
   factory XRounded() {
-    return _instance;
+    return instance;
   }
 
   XRounded._internal() {}
@@ -76,46 +76,42 @@ class XRounded {
 
   set borderRadius(double value) => _borderRadius = value;
 
-  static setBorderRadius(double value) => XRounded()._borderRadius = value;
+  static setBorderRadius(double value) => XRounded.instance._borderRadius = value;
 
-  static BorderRadius all = BorderRadius.circular(XRounded()._borderRadius);
+  static BorderRadius all = BorderRadius.circular(XRounded.instance._borderRadius);
 
   static BorderRadius top = BorderRadius.only(
-      topLeft: Radius.circular(XRounded()._borderRadius),
-      topRight: Radius.circular(XRounded()._borderRadius));
+      topLeft: Radius.circular(XRounded.instance._borderRadius),
+      topRight: Radius.circular(XRounded.instance._borderRadius));
 
   static BorderRadius bottom = BorderRadius.only(
-      bottomLeft: Radius.circular(XRounded()._borderRadius),
-      bottomRight: Radius.circular(XRounded()._borderRadius));
+      bottomLeft: Radius.circular(XRounded.instance._borderRadius),
+      bottomRight: Radius.circular(XRounded.instance._borderRadius));
 
   static BorderRadius left = BorderRadius.only(
-      bottomLeft: Radius.circular(XRounded()._borderRadius),
-      topLeft: Radius.circular(XRounded()._borderRadius));
+      bottomLeft: Radius.circular(XRounded.instance._borderRadius),
+      topLeft: Radius.circular(XRounded.instance._borderRadius));
 
   static BorderRadius right = BorderRadius.only(
-      bottomRight: Radius.circular(XRounded()._borderRadius),
-      topRight: Radius.circular(XRounded()._borderRadius));
+      bottomRight: Radius.circular(XRounded.instance._borderRadius),
+      topRight: Radius.circular(XRounded.instance._borderRadius));
 
   static BorderRadius circle = BorderRadius.circular(1000.0);
 }
 
 class AppStyle {
-  static final AppStyle _instance = AppStyle._internal();
+  static final AppStyle instance = AppStyle._internal();
 
   factory AppStyle() {
-    return _instance;
+    return instance;
   }
 
   AppStyle._internal() {}
 
   // colors
-  Color _primaryColor = const Color(0xFF7380EC);
-  Color _secondaryColor = const Color(0xFF000000);
-  Color _lightColor = const Color(0xFF9FA6B2);
-
-  static Color primaryColor = AppStyle()._primaryColor;
-  static Color secondaryColor = AppStyle()._secondaryColor;
-  static Color lightColor = AppStyle()._lightColor;
+  Color primaryColor = const Color(0xFF7380EC);
+  Color secondaryColor = const Color(0xFF000000);
+  Color lightColor = const Color(0xFF9FA6B2);
 
   static EdgeInsets Function(
       {double bottom,
@@ -150,9 +146,9 @@ class AppStyle {
   static BorderRadius roundedRight = XRounded.right;
   static BorderRadius roundedCircle = XRounded.circle;
 
-  static setSecondaryColor(Color value) => AppStyle()._secondaryColor = value;
+  static setSecondaryColor(Color value) => AppStyle.instance.secondaryColor = value;
 
-  static setPrimaryColor(Color value) => AppStyle()._primaryColor = value;
+  static setPrimaryColor(Color value) => AppStyle.instance.primaryColor = value;
 
-  static setLightColor(Color value) => AppStyle()._lightColor = value;
+  static setLightColor(Color value) => AppStyle.instance.lightColor = value;
 }

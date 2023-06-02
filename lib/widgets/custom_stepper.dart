@@ -131,7 +131,7 @@ class _CustomStepperState extends State<CustomStepper> {
           Expanded(
             child: Divider(
               thickness: 1,
-              color: widget.completedColor ?? AppStyle.primaryColor,
+              color: widget.completedColor ?? AppStyle.instance.primaryColor,
             ),
           ),
         );
@@ -186,11 +186,11 @@ class ProgressButton extends StatelessWidget {
               width: double.infinity,
               decoration: BoxDecoration(
                   color: isActive()
-                      ? completedColor ?? AppStyle.primaryColor
+                      ? completedColor ?? AppStyle.instance.primaryColor
                       : Colors.white,
                   borderRadius: AppStyle.roundedCircle,
                   border: Border.fromBorderSide(BorderSide(
-                    color: completedColor ?? AppStyle.primaryColor,
+                    color: completedColor ?? AppStyle.instance.primaryColor,
                   ))),
               child: Center(
                 child: isActive()
@@ -206,7 +206,7 @@ class ProgressButton extends StatelessWidget {
                         style: TextStyle(
                             color: isCompleted()
                                 ? completedTextColor ?? Colors.white
-                                : completedColor ?? AppStyle.primaryColor,
+                                : completedColor ?? AppStyle.instance.primaryColor,
                             fontWeight: FontWeight.bold,
                             fontSize: size * 0.33,
                             height: 1),
