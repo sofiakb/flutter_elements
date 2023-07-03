@@ -117,8 +117,22 @@ class _CustomInputState extends State<CustomInput> {
                     )
                   : null,
               hintText: widget.hintText,
-              prefixIcon: widget.prefixIcon,
-              suffixIcon: widget.suffixIcon,
+              prefixIcon: widget.prefixIcon == null
+                  ? null
+                  : Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        widget.prefixIcon!,
+                      ],
+                    ),
+              suffixIcon: widget.suffixIcon == null
+                  ? null
+                  : Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        widget.suffixIcon!,
+                      ],
+                    ),
             ),
             autofocus: widget.isFocus,
             enabled: widget.enabled,
