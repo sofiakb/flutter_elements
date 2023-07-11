@@ -19,3 +19,6 @@ dependencies:
 assets:
   - assets/
   - assets/img/
+
+scripts:
+  release: ./scripts/release.sh
