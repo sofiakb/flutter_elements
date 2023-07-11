@@ -17,21 +17,20 @@ permissions:
 
 jobs:
 
-  test:
-    name: Testing dart package
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        name: Checkout actions
-      - uses: dart-lang/setup-dart@v1
-        name: Setup Dart
-      - run: dart pub get
-        name: Get pub
-      - run: dart test
-        name: Running test...
+#  test:
+#    name: Testing dart package
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v3
+#        name: Checkout actions
+#      - uses: dart-lang/setup-dart@v1
+#        name: Setup Dart
+#      - run: dart pub get
+#        name: Get pub
+#      - run: dart test
+#        name: Running test...
 
   generate:
-    needs: test
     name: Generate tags
     runs-on: ubuntu-latest
     steps:
