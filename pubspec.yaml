@@ -1,7 +1,7 @@
 name: sofiakb_elements
 description: The packages allows to easily configure your project.
 maintainer: Sofiane Akbly
-version: 0.0.1
+version: 1.0.0-beta.3
 publish_to: none
 
 environment:
@@ -19,3 +19,6 @@ dependencies:
 assets:
   - assets/
   - assets/img/
+
+scripts:
+  release: ./scripts/release.sh

@@ -67,9 +67,9 @@ add-ons/plugins for the acknowledgements section. Here are a few examples.
 Add this in pubspec.yaml
 
 ```yaml
-sofiakb_flutter_elements:
+sofiakb_elements:
   git:
-    url: git@github.com:flutter_elements.git
+    url: git@github.com:sofiakb/flutter_elements.git
     ref: main
 ```
 
