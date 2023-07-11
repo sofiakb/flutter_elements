@@ -29,13 +29,15 @@ class _CustomRadioButtonsState<T> extends State<CustomRadioButtons<T>> {
     return Column(
       children: [
         if (widget.title != null) _title(),
-        Wrap(
-          // mainAxisAlignment: MainAxisAlignment.spaceAround,
-          spacing: 10,
-          alignment: WrapAlignment.spaceAround,
-          children: widget.items
-              .map<Widget>((e) => _radioItem(e.label, e.value))
-              .toList(),
+        Container(
+          child: Wrap(
+            // mainAxisAlignment: MainAxisAlignment.spaceAround,
+            spacing: 10,
+            alignment: WrapAlignment.spaceAround,
+            children: widget.items
+                .map<Widget>((e) => _radioItem(e.value, label: e.label, child: e.child))
+                .toList(),
+          ),
         ),
       ],
     );
@@ -49,22 +51,31 @@ class _CustomRadioButtonsState<T> extends State<CustomRadioButtons<T>> {
         ),
       );
 
-  Widget _radioItem(String label, T value) => Column(
+  Widget _radioItem(T value, {String? label, Widget? child}) => Column(
         children: [
-          if (widget.reverseLabels == false) Text(label),
+          if (widget.reverseLabels == false) label != null ? Text(label) : child!,
           Radio<T>(
             value: value,
             groupValue: widget.selected,
             onChanged: widget.onChanged,
           ),
-          if (widget.reverseLabels == true) Text(label),
+          if (widget.reverseLabels == true) label != null ? Text(label) : child!,
         ],
       );
 }
 
 class CustomRadioButtonsValue<T> {
-  final String label;
+  final String? label;
+  final Widget? child;
   final T value;
 
-  const CustomRadioButtonsValue({required this.label, required this.value});
+  const CustomRadioButtonsValue({this.label, required this.value, this.child})
+      : assert(
+          label != null || child != null,
+          'label or child must be provided',
+        ),
+        assert(
+          label == null || child == null,
+          'Cannot provide both a label and a child',
+        );
 }
