@@ -25,6 +25,8 @@ export 'widgets/inputs/email_input.dart';
 export 'widgets/inputs/password_input.dart';
 export 'widgets/inputs/phone_input.dart';
 
+export 'widgets/custom_radio.dart';
+
 // commons
 export 'widgets/logo.dart';
 export 'widgets/scrollable_page.dart';
