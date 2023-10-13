@@ -25,7 +25,7 @@ class PasswordValidator extends Validator {
 
     if (upperLetter && specialCharacter && withNumber) {
       regExpString =
-          "(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@\$%^&*-\+]).{$minimumSize,}\$";
+          "(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@\$%^&*-+]).{$minimumSize,}\$";
     } else if (upperLetter && withNumber) {
       regExpString = "(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{$minimumSize,}\$";
     } else {
@@ -48,14 +48,17 @@ class PasswordValidator extends Validator {
   String requirementsToString() {
     List<String> requirements = ["$minimumSize caractères", "1 lettre minuscule"];
 
-    if (upperLetter)
+    if (upperLetter) {
       requirements.add("1 lettre majuscule");
+    }
 
-    if (specialCharacter)
+    if (specialCharacter) {
       requirements.add("1 caractère spécial");
+    }
 
-    if (withNumber)
+    if (withNumber) {
       requirements.add("1 chiffre");
+    }
 
     return requirements.join(", ");
   }

@@ -20,7 +20,7 @@ class LargerText extends StatelessWidget {
       style: style,
       textAlign: textAlign,
       fontSize:
-          fontSize ?? (Theme.of(context).textTheme.bodyText1!.fontSize! * 1.3),
+          fontSize ?? (Theme.of(context).textTheme.bodyLarge!.fontSize! * 1.3),
     );
   }
 }

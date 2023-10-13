@@ -14,5 +14,5 @@ class Validator {
 
   String? errorMessage(
           {String? message, String? value, bool override = false}) =>
-      override == true ? message : '${this.prefixMessage} $message';
+      override == true ? message : '$prefixMessage $message';
 }

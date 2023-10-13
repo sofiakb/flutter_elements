@@ -36,7 +36,7 @@ class PhoneInput extends StatefulWidget {
 
   final String? errorMessage;
 
-  String? Function(String? value)? validator = (String? value) => null;
+  final String? Function(String? value)? validator;
   final String? validatorMessage;
 
   final Function(String)? onChanged;

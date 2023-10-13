@@ -19,7 +19,7 @@ class LargeText extends StatelessWidget {
       textAlign: textAlign,
       style: (style ?? TextStyle()).copyWith(
           fontSize: fontSize ??
-              (Theme.of(context).textTheme.bodyText1!.fontSize! * 1.1)),
+              (Theme.of(context).textTheme.bodyLarge!.fontSize! * 1.1)),
     );
   }
 }
