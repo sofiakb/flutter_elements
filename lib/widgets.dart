@@ -60,3 +60,9 @@ export 'widgets/x_asset_image.dart';
 // grid
 export 'widgets/grid/custom_grid_row.dart';
 export 'widgets/grid/custom_grid_column.dart';
+
+// file selector
+export 'widgets/file_selector/configuration/camera_file_selector_configuration.dart';
+export 'widgets/file_selector/configuration/gallery_file_selector_configuration.dart';
+export 'widgets/file_selector/configuration/files_file_selector_configuration.dart';
+export 'widgets/file_selector/file_selector.dart';
