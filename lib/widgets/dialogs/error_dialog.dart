@@ -22,5 +22,5 @@ class ErrorDialog extends CustomDialogBox {
             showConfirmButton: showConfirmButton ?? true,
             cancelButtonText: cancelButtonText,
             showCancelButton: showCancelButton ?? false,
-            icon: icon ?? CustomDialogIconsType.ERROR);
+            icon: icon ?? CustomDialogIconsType.error);
 }

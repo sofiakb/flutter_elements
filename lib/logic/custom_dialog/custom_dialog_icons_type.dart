@@ -1,1 +1,1 @@
-enum CustomDialogIconsType { SUCCESS, ERROR, WARNING, QUESTION, INFO }
+enum CustomDialogIconsType { success, error, warning, question, info }

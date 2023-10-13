@@ -20,15 +20,15 @@ class CustomDialogIcon {
 
   static IconData? getIcon(CustomDialogIconsType icon) {
     switch (icon) {
-      case CustomDialogIconsType.SUCCESS:
+      case CustomDialogIconsType.success:
         return FontAwesomeIcons.lightCheck;
-      case CustomDialogIconsType.ERROR:
+      case CustomDialogIconsType.error:
         return FontAwesomeIcons.lightXmark;
-      case CustomDialogIconsType.WARNING:
+      case CustomDialogIconsType.warning:
         return FontAwesomeIcons.lightExclamation;
-      case CustomDialogIconsType.QUESTION:
+      case CustomDialogIconsType.question:
         return FontAwesomeIcons.lightQuestion;
-      case CustomDialogIconsType.INFO:
+      case CustomDialogIconsType.info:
         return FontAwesomeIcons.lightInfo;
       default:
         return null;
@@ -37,15 +37,15 @@ class CustomDialogIcon {
 
   static String? getTitle(CustomDialogIconsType icon) {
     switch (icon) {
-      case CustomDialogIconsType.SUCCESS:
+      case CustomDialogIconsType.success:
         return "Réussi";
-      case CustomDialogIconsType.ERROR:
+      case CustomDialogIconsType.error:
         return "Aïe..";
-      case CustomDialogIconsType.WARNING:
+      case CustomDialogIconsType.warning:
         return "Êtes-vous sûr(e) ?";
-      case CustomDialogIconsType.QUESTION:
+      case CustomDialogIconsType.question:
         return "Petite question..";
-      case CustomDialogIconsType.INFO:
+      case CustomDialogIconsType.info:
         return "Pour info..";
       default:
         return null;
@@ -54,15 +54,15 @@ class CustomDialogIcon {
 
   static Color? getColor(CustomDialogIconsType icon) {
     switch (icon) {
-      case CustomDialogIconsType.SUCCESS:
+      case CustomDialogIconsType.success:
         return Colors.green;
-      case CustomDialogIconsType.ERROR:
+      case CustomDialogIconsType.error:
         return Colors.red;
-      case CustomDialogIconsType.WARNING:
+      case CustomDialogIconsType.warning:
         return Colors.orange;
-      case CustomDialogIconsType.QUESTION:
+      case CustomDialogIconsType.question:
         return Colors.purple;
-      case CustomDialogIconsType.INFO:
+      case CustomDialogIconsType.info:
         return Colors.cyan;
       default:
         return null;

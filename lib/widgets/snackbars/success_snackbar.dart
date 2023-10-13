@@ -4,25 +4,12 @@ import 'package:sofiakb_elements/widgets/snackbars/custom_snackbar.dart';
 class SuccessSnackbar extends CustomSnackbar {
   const SuccessSnackbar(
       {Key? key,
-      this.content,
-      this.backgroundColor = Colors.green,
-      this.behavior,
-      this.margin,
-      this.elevation,
-      this.text});
-
-  @override
-  final Widget? content;
-  @override
-  final String? text;
-  @override
-  final Color? backgroundColor;
-  @override
-  final SnackBarBehavior? behavior;
-  @override
-  final EdgeInsets? margin;
-  @override
-  final double? elevation;
+      super.content,
+      super.backgroundColor = Colors.green,
+      super.behavior,
+      super.margin,
+      super.elevation,
+      super.text});
 
   @override
   void show(context) {
