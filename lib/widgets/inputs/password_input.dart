@@ -39,7 +39,7 @@ class PasswordInput extends StatefulWidget {
 
   final bool? withIcon;
 
-  String? Function(String? value)? validator = (String? value) => null;
+  final String? Function(String? value)? validator;
   final String? validatorMessage;
 
   final Function(String)? onChanged;

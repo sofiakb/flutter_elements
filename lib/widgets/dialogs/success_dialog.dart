@@ -21,5 +21,5 @@ class SuccessDialog extends CustomDialogBox {
             showConfirmButton: showConfirmButton ?? true,
             cancelButtonText: cancelButtonText,
             showCancelButton: showCancelButton ?? false,
-            icon: icon ?? CustomDialogIconsType.SUCCESS);
+            icon: icon ?? CustomDialogIconsType.success);
 }

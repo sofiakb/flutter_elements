@@ -56,3 +56,7 @@ export 'widgets/dividers/horizontal_or_divider.dart';
 
 // commons
 export 'widgets/x_asset_image.dart';
+
+// grid
+export 'widgets/grid/custom_grid_row.dart';
+export 'widgets/grid/custom_grid_column.dart';

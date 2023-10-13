@@ -12,7 +12,7 @@ class XAssetImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Image.asset(
-      "assets/images/${path}",
+      "assets/images/$path",
       width: width,
       height: height,
       fit: fit,

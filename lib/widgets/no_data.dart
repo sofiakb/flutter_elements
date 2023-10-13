@@ -49,7 +49,7 @@ class NoData extends StatelessWidget {
                 color: Colors.blueGrey,
                 fontWeight: FontWeight.bold,
                 fontSize:
-                    (Theme.of(context).textTheme.bodyText1?.fontSize ?? 14) *
+                    (Theme.of(context).textTheme.bodyLarge?.fontSize ?? 14) *
                         1.2),
           ),
         ),

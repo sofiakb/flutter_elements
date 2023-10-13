@@ -41,15 +41,16 @@ class CustomStepper extends StatefulWidget {
 }
 
 class _CustomStepperState extends State<CustomStepper> {
-  PageController _pageController = PageController(keepPage: false);
+  final PageController _pageController = PageController(keepPage: false);
 
   ValueNotifier<int> _page = ValueNotifier<int>(0);
 
   @override
   void initState() {
     _page = widget.currentPage ?? ValueNotifier<int>(0);
-    if (widget.currentPage != null)
+    if (widget.currentPage != null) {
       _page.addListener(() => changePage(widget.currentPage!.value));
+    }
 
     super.initState();
   }
@@ -126,7 +127,7 @@ class _CustomStepperState extends State<CustomStepper> {
                   ? StepState.complete
                   : null,
           onTap: () => changePage(e.key)));
-      if (e.key < widget.children.length - 1)
+      if (e.key < widget.children.length - 1) {
         stepButtons.add(
           Expanded(
             child: Divider(
@@ -135,6 +136,7 @@ class _CustomStepperState extends State<CustomStepper> {
             ),
           ),
         );
+      }
     });
     return stepButtons;
   }
@@ -143,8 +145,9 @@ class _CustomStepperState extends State<CustomStepper> {
     setState(() {
       if (widget.onPageChanged != null) {
         if (widget.onPageChanged!(_page.value) == true) _page.value = page;
-      } else
+      } else {
         _page.value = page;
+      }
     });
     _pageController.animateToPage(_page.value,
         duration: const Duration(milliseconds: 300), curve: Curves.ease);

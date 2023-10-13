@@ -9,7 +9,7 @@ class XPadding {
     return _instance;
   }
 
-  XPadding._internal() {}
+  XPadding._internal();
 
   // padding
   double _paddingSize = 8.0;
@@ -69,7 +69,7 @@ class XRounded {
     return instance;
   }
 
-  XRounded._internal() {}
+  XRounded._internal();
 
   // border radius
   double _borderRadius = 15.0;
@@ -106,7 +106,7 @@ class AppStyle {
     return instance;
   }
 
-  AppStyle._internal() {}
+  AppStyle._internal();
 
   // colors
   Color primaryColor = const Color(0xFF7380EC);

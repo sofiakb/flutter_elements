@@ -80,11 +80,11 @@ class _CustomInputState extends State<CustomInput> {
           EdgeInsets.only(top: 8.0, bottom: hasErrorMessage() ? 20.0 : 8.0),
       child: widget.resize
           ? LayoutBuilder(builder: (context, size) {
-              TextSpan text = new TextSpan(
+              TextSpan text = TextSpan(
                 text: widget.controller?.text,
               );
 
-              TextPainter tp = new TextPainter(
+              TextPainter tp = TextPainter(
                 text: text,
                 textDirection: TextDirection.ltr,
                 textAlign: TextAlign.left,

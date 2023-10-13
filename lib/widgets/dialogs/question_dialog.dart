@@ -21,5 +21,5 @@ class QuestionDialog extends CustomDialogBox {
             showConfirmButton: showConfirmButton ?? true,
             cancelButtonText: cancelButtonText ?? "Non",
             showCancelButton: showCancelButton ?? true,
-            icon: icon ?? CustomDialogIconsType.QUESTION);
+            icon: icon ?? CustomDialogIconsType.question);
 }

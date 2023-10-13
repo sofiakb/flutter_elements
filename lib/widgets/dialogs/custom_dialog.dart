@@ -31,7 +31,7 @@ class CustomDialogBox extends StatefulWidget {
       : super(key: key);
 
   @override
-  _CustomDialogBoxState createState() => _CustomDialogBoxState();
+  State<CustomDialogBox> createState() => _CustomDialogBoxState();
 }
 
 class _CustomDialogBoxState extends State<CustomDialogBox> {
