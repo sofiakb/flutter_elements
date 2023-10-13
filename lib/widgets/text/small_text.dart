@@ -18,7 +18,7 @@ class SmallText extends StatelessWidget {
       textAlign: textAlign,
       style: (style ?? TextStyle()).copyWith(
           fontSize: fontSize ??
-              (Theme.of(context).textTheme.bodyText1!.fontSize! * 0.8)),
+              (Theme.of(context).textTheme.bodyLarge!.fontSize! * 0.8)),
     );
   }
 }

@@ -20,7 +20,7 @@ class SmallerText extends StatelessWidget {
       style: style,
       textAlign: textAlign,
       fontSize:
-          fontSize ?? (Theme.of(context).textTheme.bodyText1!.fontSize! * 0.6),
+          fontSize ?? (Theme.of(context).textTheme.bodyLarge!.fontSize! * 0.6),
     );
   }
 }

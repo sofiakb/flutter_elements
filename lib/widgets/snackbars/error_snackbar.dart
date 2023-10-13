@@ -11,13 +11,20 @@ class ErrorSnackbar extends CustomSnackbar {
       this.elevation,
       this.text});
 
+  @override
   final Widget? content;
+  @override
   final String? text;
+  @override
   final Color? backgroundColor;
+  @override
   final SnackBarBehavior? behavior;
+  @override
   final EdgeInsets? margin;
+  @override
   final double? elevation;
 
+  @override
   void show(context) {
     final snackBar = SnackBar(
       content: content ?? Text(text!),
