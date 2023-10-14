@@ -27,6 +27,7 @@ class CustomInput extends StatefulWidget {
       this.autocorrect = true,
       this.child,
       this.resize = false,
+      this.minLines = 1,
       this.inputFormatters})
       : super(key: key);
 
@@ -59,6 +60,8 @@ class CustomInput extends StatefulWidget {
   final Widget? child;
 
   final bool resize;
+
+  final int minLines;
 
   @override
   State<CustomInput> createState() => _CustomInputState();
@@ -164,6 +167,7 @@ class _CustomInputState extends State<CustomInput> {
         textInputAction: widget.textInputAction,
         inputFormatters: widget.inputFormatters,
         maxLines: maxLines,
+        minLines: widget.minLines,
         validator: (String? value) {
           return updateErrorMessage(widget.validator != null
               ? widget.validator!(value)
