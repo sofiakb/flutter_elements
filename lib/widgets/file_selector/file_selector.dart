@@ -66,24 +66,21 @@ class _FileSelectorState extends State<FileSelector> {
 
     return GestureDetector(
         onTap: () => showBottomSelectors(context),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: ValueListenableBuilder(
-              valueListenable: _files,
-              builder: (context, value, child) {
-                return SizedBox(
-                  width: double.infinity,
-                  child: widget.child ??
-                      Text(
-                        _files.value.isEmpty
-                            ? "Choisir ${Intl.plural(widget.maxFiles ?? 1, other: "des fichiers", one: "un fichier")}..."
-                            : _files.value.length == 1
-                                ? _fileName(_files.value.first.path)
-                                : "${_files.value.length} fichiers",
-                      ),
-                );
-              }),
-        ));
+        child: ValueListenableBuilder(
+            valueListenable: _files,
+            builder: (context, value, child) {
+              return SizedBox(
+                width: double.infinity,
+                child: widget.child ??
+                    Text(
+                      _files.value.isEmpty
+                          ? "Choisir ${Intl.plural(widget.maxFiles ?? 1, other: "des fichiers", one: "un fichier")}..."
+                          : _files.value.length == 1
+                              ? _fileName(_files.value.first.path)
+                              : "${_files.value.length} fichiers",
+                    ),
+              );
+            }));
   }
 
   bool get withCamera => widget.cameraConfiguration.enabled;
