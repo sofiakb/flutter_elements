@@ -8,5 +8,10 @@ class GalleryFileSelectorConfiguration extends FileSelectorConfiguration {
       super.onChanged,
       super.label = "Bibliothèque",
       super.icon = CupertinoIcons.photo,
-      super.child});
+      super.child,
+      this.fileType = GalleryFileType.image});
+
+  final GalleryFileType fileType;
 }
+
+enum GalleryFileType { video, image, media }

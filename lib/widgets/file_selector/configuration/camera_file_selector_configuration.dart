@@ -8,5 +8,10 @@ class CameraFileSelectorConfiguration extends FileSelectorConfiguration {
       super.onChanged,
       super.label = "Caméra",
       super.icon = CupertinoIcons.camera,
-      super.child});
+      super.child,
+      this.fileType = CameraFileType.image});
+
+  final CameraFileType fileType;
 }
+
+enum CameraFileType { video, image, media }

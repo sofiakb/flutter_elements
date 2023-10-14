@@ -23,6 +23,7 @@ class FileSelector extends StatefulWidget {
     super.key,
     this.onChanged,
     this.child,
+    this.children,
     this.autoOpen = false,
     this.maxFiles,
     this.cameraConfiguration = const CameraFileSelectorConfiguration(),
@@ -33,6 +34,7 @@ class FileSelector extends StatefulWidget {
   final void Function(List<File>)? onChanged;
 
   final Widget? child;
+  final List<Widget>? children;
   final bool autoOpen;
 
   final CameraFileSelectorConfiguration cameraConfiguration;
@@ -74,7 +76,7 @@ class _FileSelectorState extends State<FileSelector> {
                   child: widget.child ??
                       Text(
                         _files.value.isEmpty
-                            ? "Choisir ${Intl.plural(widget.maxFiles ?? 1, other: "des fichiers", one: "un fichier")}"
+                            ? "Choisir ${Intl.plural(widget.maxFiles ?? 1, other: "des fichiers", one: "un fichier")}..."
                             : _files.value.length == 1
                                 ? _fileName(_files.value.first.path)
                                 : "${_files.value.length} fichiers",
@@ -114,12 +116,14 @@ class _FileSelectorState extends State<FileSelector> {
                       borderRadius: borderRadius,
                     ),
                     child: Column(
-                      children: [
+                      children: widget.children ?? [
                         if (withCamera)
                           FileSelectorItem(
                               icon: widget.cameraConfiguration.icon,
                               child: ImageImport(
                                 source: image.ImageSource.camera,
+                                video: widget.cameraConfiguration.fileType == CameraFileType.video,
+                                media: widget.cameraConfiguration.fileType == CameraFileType.media,
                                 onChanged: (List<image.XFile> files) =>
                                     _onChanged(
                                         files.map((e) => e.path).toList()),
@@ -131,6 +135,8 @@ class _FileSelectorState extends State<FileSelector> {
                               icon: widget.galleryConfiguration.icon,
                               child: ImageImport(
                                 source: image.ImageSource.gallery,
+                                video: widget.galleryConfiguration.fileType == GalleryFileType.video,
+                                media: widget.galleryConfiguration.fileType == GalleryFileType.media,
                                 onChanged: (List<image.XFile> files) =>
                                     _onChanged(
                                         files.map((e) => e.path).toList()),
