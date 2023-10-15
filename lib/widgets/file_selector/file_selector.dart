@@ -17,6 +17,7 @@ import 'image_import.dart';
 class FileSelector extends StatefulWidget {
   const FileSelector({
     super.key,
+    required this.files,
     this.onChanged,
     this.onClear,
     this.child,
@@ -30,6 +31,7 @@ class FileSelector extends StatefulWidget {
 
   final void Function(List<File>)? onChanged;
   final void Function()? onClear;
+  final List<File> files;
 
   final Widget? child;
   final List<Widget>? children;
@@ -80,19 +82,21 @@ class _FileSelectorState extends State<FileSelector> {
                                   : "${_files.value.length} fichiers",
                         ),
                   ),
-                  if (_files.value.isNotEmpty)
-                  GestureDetector(
-                    onTap: () => _onClear(),
-                    child: Align(
-                        alignment: Alignment
-                            .centerRight,
-                        child: Column(
-                          children: [
-                            FaIcon(
-                                FontAwesomeIcons.xmark, size: Theme.of(context).textTheme.bodyMedium!.fontSize),
-                          ],
-                        )),
-                  ),
+                  if (widget.files.isNotEmpty)
+                    GestureDetector(
+                      onTap: () => _onClear(),
+                      child: Align(
+                          alignment: Alignment.centerRight,
+                          child: Column(
+                            children: [
+                              FaIcon(FontAwesomeIcons.xmark,
+                                  size: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium!
+                                      .fontSize),
+                            ],
+                          )),
+                    ),
                 ],
               );
             }));
@@ -114,7 +118,7 @@ class _FileSelectorState extends State<FileSelector> {
   }
 
   _onClear() {
-    _files.value =[];
+    _files.value = [];
     widget.onClear?.call();
   }
 
