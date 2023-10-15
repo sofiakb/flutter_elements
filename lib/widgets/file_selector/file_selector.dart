@@ -18,6 +18,7 @@ class FileSelector extends StatefulWidget {
   const FileSelector({
     super.key,
     this.onChanged,
+    this.onClear,
     this.child,
     this.children,
     this.autoOpen = false,
@@ -28,6 +29,7 @@ class FileSelector extends StatefulWidget {
   });
 
   final void Function(List<File>)? onChanged;
+  final void Function()? onClear;
 
   final Widget? child;
   final List<Widget>? children;
@@ -65,16 +67,33 @@ class _FileSelectorState extends State<FileSelector> {
         child: ValueListenableBuilder(
             valueListenable: _files,
             builder: (context, value, child) {
-              return SizedBox(
-                width: double.infinity,
-                child: widget.child ??
-                    Text(
-                      _files.value.isEmpty
-                          ? "Choisir ${Intl.plural(widget.maxFiles ?? 1, other: "des fichiers", one: "un fichier")}..."
-                          : _files.value.length == 1
-                              ? _fileName(_files.value.first.path)
-                              : "${_files.value.length} fichiers",
-                    ),
+              return Stack(
+                children: [
+                  SizedBox(
+                    width: double.infinity,
+                    child: widget.child ??
+                        Text(
+                          _files.value.isEmpty
+                              ? "Choisir ${Intl.plural(widget.maxFiles ?? 1, other: "des fichiers", one: "un fichier")}..."
+                              : _files.value.length == 1
+                                  ? _fileName(_files.value.first.path)
+                                  : "${_files.value.length} fichiers",
+                        ),
+                  ),
+                  if (_files.value.isNotEmpty)
+                  GestureDetector(
+                    onTap: () => _onClear(),
+                    child: Align(
+                        alignment: Alignment
+                            .centerRight,
+                        child: Column(
+                          children: [
+                            FaIcon(
+                                FontAwesomeIcons.xmark, size: Theme.of(context).textTheme.bodyMedium!.fontSize),
+                          ],
+                        )),
+                  ),
+                ],
               );
             }));
   }
@@ -92,6 +111,11 @@ class _FileSelectorState extends State<FileSelector> {
         .toList();
     Navigator.pop(context);
     widget.onChanged?.call(_files.value);
+  }
+
+  _onClear() {
+    _files.value =[];
+    widget.onClear?.call();
   }
 
   Future showBottomSelectors(BuildContext context) => showModalBottomSheet(
