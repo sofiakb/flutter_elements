@@ -8,7 +8,7 @@ import 'package:sofiakb_elements/widgets/file_selector/file_selector_utils.dart'
 
 import 'file_selector_item.dart';
 
-enum FileSelectorItemType { image, file }
+enum FileSelectorItemType { video, image, media, file }
 
 class FileSelectorItemChild extends StatelessWidget {
   const FileSelectorItemChild(
@@ -34,9 +34,11 @@ class FileSelectorItemChild extends StatelessWidget {
   Widget build(BuildContext context) {
     return FileSelectorItem(
         icon: icon,
-        child: type == FileSelectorItemType.image
+        child: type == FileSelectorItemType.image || type == FileSelectorItemType.video|| type == FileSelectorItemType.media
             ? ImageImport(
                 source: source ?? ImageSource.gallery,
+                video: type == FileSelectorItemType.video,
+                media: type == FileSelectorItemType.media,
                 onChanged: (List<XFile> files) =>
                     onChanged(onFileChanged(files.map((e) => e.path).toList())),
                 child: Text(label),

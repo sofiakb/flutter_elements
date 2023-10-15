@@ -70,3 +70,7 @@ export 'widgets/file_selector/image_import.dart';
 export 'widgets/file_selector/file_import.dart';
 export 'widgets/file_selector/file_selector_item/file_selector_item.dart';
 export 'widgets/file_selector/file_selector_item/file_selector_item_image_gallery.dart';
+export 'widgets/file_selector/file_selector_item/file_selector_item_image_camera.dart';
+export 'widgets/file_selector/file_selector_item/file_selector_item_video_gallery.dart';
+export 'widgets/file_selector/file_selector_item/file_selector_item_video_camera.dart';
+export 'widgets/file_selector/file_selector_item/file_selector_item_files.dart';
