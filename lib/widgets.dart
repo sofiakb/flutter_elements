@@ -68,3 +68,5 @@ export 'widgets/file_selector/configuration/files_file_selector_configuration.da
 export 'widgets/file_selector/file_selector.dart';
 export 'widgets/file_selector/image_import.dart';
 export 'widgets/file_selector/file_import.dart';
+export 'widgets/file_selector/file_selector_item/file_selector_item.dart';
+export 'widgets/file_selector/file_selector_item/file_selector_item_image_gallery.dart';
