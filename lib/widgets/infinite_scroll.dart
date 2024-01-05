@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 class InfiniteScroll extends StatefulWidget {
-  const InfiniteScroll({Key? key, required this.child, required this.onRefresh})
-      : super(key: key);
+  const InfiniteScroll({super.key, required this.child, required this.onRefresh});
 
   final Widget child;
 
@@ -30,7 +29,7 @@ class _InfiniteScrollState extends State<InfiniteScroll> {
               ScrollDirection.reverse) {
         setState(() => _isLoading = true);
         await widget.onRefresh();
-        Future.delayed(Duration(seconds: 1), () => setState(() => _isLoading = false))
+        Future.delayed(const Duration(seconds: 1), () => setState(() => _isLoading = false))
         ;
       }
     });

@@ -19,7 +19,7 @@ class CustomDialogBox extends StatefulWidget {
   final CustomDialogIconsType? icon;
 
   const CustomDialogBox(
-      {Key? key,
+      {super.key,
       required this.text,
       this.title,
       this.confirmButtonText = "Confirmer",
@@ -27,8 +27,7 @@ class CustomDialogBox extends StatefulWidget {
       this.cancelButtonText = "Annuler",
       this.showCancelButton = true,
       this.icon,
-      this.img})
-      : super(key: key);
+      this.img});
 
   @override
   State<CustomDialogBox> createState() => _CustomDialogBoxState();
@@ -76,17 +75,17 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
               if (widget.title != null || customDialogIcon?.title != null)
                 Text(
                   (widget.title ?? customDialogIcon?.title)!,
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
+                  style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
                 ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               Text(
                 widget.text,
-                style: TextStyle(fontSize: 14),
+                style: const TextStyle(fontSize: 14),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 22,
               ),
               Row(
@@ -100,7 +99,7 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
                       text: widget.confirmButtonText!,
                     ),
                   if (widget.showConfirmButton || widget.showCancelButton)
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                   if (widget.showCancelButton &&
@@ -183,11 +182,10 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
 
 class DialogButton extends StatelessWidget {
   const DialogButton(
-      {Key? key,
+      {super.key,
       required this.onPressed,
       this.backgroundColor,
-      required this.text})
-      : super(key: key);
+      required this.text});
 
   final void Function() onPressed;
   final Color? backgroundColor;
@@ -203,7 +201,7 @@ class DialogButton extends StatelessWidget {
             foregroundColor: Colors.white),
         child: Text(
           text,
-          style: TextStyle(fontSize: 18),
+          style: const TextStyle(fontSize: 18),
         ));
   }
 }

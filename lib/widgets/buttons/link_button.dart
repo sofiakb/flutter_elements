@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:sofiakb_elements/style.dart';
 
 class LinkButton extends StatelessWidget {
-  const LinkButton(this.text, {Key? key, this.style, this.color, required this.onTap})
-      : super(key: key);
+  const LinkButton(this.text, {super.key, this.style, this.color, required this.onTap});
 
   final String text;
   final Color? color;

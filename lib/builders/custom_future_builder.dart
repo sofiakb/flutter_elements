@@ -3,7 +3,7 @@ import 'package:sofiakb_elements/widgets.dart';
 
 class CustomFutureBuilder<T> extends StatelessWidget {
   const CustomFutureBuilder(
-      {Key? key,
+      {super.key,
       required this.future,
       required this.builder,
       this.loader,
@@ -12,8 +12,7 @@ class CustomFutureBuilder<T> extends StatelessWidget {
       this.defaultError = true,
       this.useSnapshotErrorMessage = false,
       this.errorMessage,
-      this.defaultEmptyMessage})
-      : super(key: key);
+      this.defaultEmptyMessage});
 
   final Future<T> future;
   final bool defaultEmpty;
@@ -37,20 +36,20 @@ class CustomFutureBuilder<T> extends StatelessWidget {
           }
 
           if (snapshot.error != null && withErrorDialog) {
-            print(snapshot.error);
-            print(snapshot.stackTrace);
+            debugPrint(snapshot.error.toString());
+            debugPrintStack(stackTrace: snapshot.stackTrace, label: snapshot.error.toString());
             Future.delayed(
-                Duration(seconds: 1),
+                const Duration(seconds: 1),
                 () async => showDialog(
                     context: context,
                     builder: (BuildContext context) =>
                         defaultError && !useSnapshotErrorMessage
-                            ? ErrorDialog()
+                            ? const ErrorDialog()
                             : ErrorDialog(
                                 text: useSnapshotErrorMessage
                                     ? snapshot.error.toString()
-                                    : errorMessage)));
-            return SizedBox.shrink();
+                                    : errorMessage ?? "Une erreur est survenue, merci de réessayer plus tard.")));
+            return const SizedBox.shrink();
           }
 
           try {

@@ -6,14 +6,13 @@ import 'package:sofiakb_elements/style.dart';
 
 class NoData extends StatelessWidget {
   const NoData(
-      {Key? key,
+      {super.key,
       this.path,
       this.text = "Oups ! Aucun résultat trouvé",
       this.subtext,
       this.fit = BoxFit.contain,
       this.height = 150,
-      this.width})
-      : super(key: key);
+      this.width});
 
   final String? path;
   final String? text;

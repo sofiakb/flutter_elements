@@ -5,7 +5,7 @@ import 'package:sofiakb_elements/widgets.dart';
 
 class CustomStepper extends StatefulWidget {
   const CustomStepper({
-    Key? key,
+    super.key,
     required this.children,
     this.completedColor,
     this.completedTextColor,
@@ -18,7 +18,7 @@ class CustomStepper extends StatefulWidget {
     this.onPageChanged,
     this.withNextButton = true,
     this.withPreviousButton = true,
-  }) : super(key: key);
+  });
 
   final List<Widget> children;
   final Color? completedColor;
@@ -165,14 +165,14 @@ class ProgressButton extends StatelessWidget {
   final double size;
 
   const ProgressButton({
-    Key? key,
+    super.key,
     required this.step,
     this.state = StepState.indexed,
     this.onTap,
     this.completedColor,
     this.completedTextColor,
     required this.size,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

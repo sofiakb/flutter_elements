@@ -5,8 +5,7 @@ import '../style.dart';
 
 class ProfileImage extends StatelessWidget {
   const ProfileImage(
-      {Key? key, this.avatar, this.radius = 50, this.borderWidth = 2})
-      : super(key: key);
+      {super.key, this.avatar, this.radius = 50, this.borderWidth = 2});
 
   final String? avatar;
   final double radius;

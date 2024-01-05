@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'large_text.dart';
 
 class LargerText extends StatelessWidget {
-  const LargerText(this.text, {Key? key, this.fontSize, this.style, this.overflow, this.textAlign})
-      : super(key: key);
+  const LargerText(this.text, {super.key, this.fontSize, this.style, this.overflow, this.textAlign});
 
   final String text;
   final double? fontSize;

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class HorizontalOrDivider extends StatelessWidget {
   const HorizontalOrDivider(
-      {this.label = "ou", this.height = 1, this.color = Colors.black, this.spacing = 15.0});
+      {super.key, this.label = "ou", this.height = 1, this.color = Colors.black, this.spacing = 15.0});
 
   final String label;
   final double height;

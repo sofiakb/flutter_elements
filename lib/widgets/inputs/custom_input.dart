@@ -7,7 +7,7 @@ import 'package:sofiakb_elements/core/validators/validator.dart';
 
 class CustomInput extends StatefulWidget {
   const CustomInput(
-      {Key? key,
+      {super.key,
       this.title,
       this.hintText,
       this.controller,
@@ -27,8 +27,8 @@ class CustomInput extends StatefulWidget {
       this.autocorrect = true,
       this.child,
       this.resize = false,
-      this.inputFormatters})
-      : super(key: key);
+      this.minLines = 1,
+      this.inputFormatters});
 
   final String? hintText;
   final String? title;
@@ -59,6 +59,8 @@ class CustomInput extends StatefulWidget {
   final Widget? child;
 
   final bool resize;
+
+  final int minLines;
 
   @override
   State<CustomInput> createState() => _CustomInputState();
@@ -117,7 +119,7 @@ class _CustomInputState extends State<CustomInput> {
                           size: 13.0,
                         ),
                       if (widget.labelIcon != null)
-                        SizedBox(
+                        const SizedBox(
                           width: 8.0,
                         ),
                       Row(
@@ -128,7 +130,7 @@ class _CustomInputState extends State<CustomInput> {
                             widget.title!,
                           ),
                           if (widget.required == true)
-                            Text(
+                            const Text(
                               '*',
                               style: TextStyle(color: Colors.red, fontSize: 8),
                             ),
@@ -164,6 +166,7 @@ class _CustomInputState extends State<CustomInput> {
         textInputAction: widget.textInputAction,
         inputFormatters: widget.inputFormatters,
         maxLines: maxLines,
+        minLines: widget.minLines,
         validator: (String? value) {
           return updateErrorMessage(widget.validator != null
               ? widget.validator!(value)
