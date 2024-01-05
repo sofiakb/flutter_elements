@@ -3,12 +3,11 @@ import 'package:sofiakb_elements/widgets.dart';
 
 class CustomStreamBuilder<T> extends StatelessWidget {
   const CustomStreamBuilder(
-      {Key? key,
+      {super.key,
       required this.stream,
       required this.builder,
       this.loader,
-      this.defaultEmpty = true})
-      : super(key: key);
+      this.defaultEmpty = true});
 
   final Stream<T> stream;
   final bool defaultEmpty;
@@ -27,27 +26,27 @@ class CustomStreamBuilder<T> extends StatelessWidget {
           }
 
           if (snapshot.error != null) {
-            print(snapshot.error);
-            print(snapshot.stackTrace);
+            debugPrint(snapshot.error.toString());
+            debugPrintStack(stackTrace: snapshot.stackTrace, label: snapshot.error.toString());
             Future.delayed(
-                Duration(seconds: 1),
+                const Duration(seconds: 1),
                 () async => showDialog(
                     context: context,
                     builder: (BuildContext context) {
-                      return ErrorDialog();
+                      return const ErrorDialog();
                     }));
-            return SizedBox.shrink();
+            return const SizedBox.shrink();
           }
 
           try {
             var dataArray = snapshot.data as List;
             if (defaultEmpty &&
                 (snapshot.data == null || dataArray.isEmpty)) {
-              return NoData();
+              return const NoData();
             }
           } catch (e) {
             if (defaultEmpty && snapshot.data == null) {
-              return NoData();
+              return const NoData();
             }
           }
 

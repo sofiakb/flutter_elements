@@ -17,7 +17,7 @@ class FileImport extends StatefulWidget {
   final void Function(List<PlatformFile>)? onChanged;
 
   const FileImport(
-      {Key? key,
+      {super.key,
       required this.child,
       this.title = "Choisir un fichier",
       this.fileType = FileType.custom,
@@ -25,8 +25,7 @@ class FileImport extends StatefulWidget {
       this.allowedExtensions,
       this.onChanged})
       : assert((fileType == FileType.custom && allowedExtensions == null) ||
-            fileType != FileType.custom),
-        super(key: key);
+            fileType != FileType.custom);
 
   @override
   State<FileImport> createState() => _FileImportState();

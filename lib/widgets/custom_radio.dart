@@ -5,7 +5,7 @@ import 'package:sofiakb_elements/style.dart';
 
 class CustomRadioButtons<T> extends StatefulWidget {
   const CustomRadioButtons({
-    Key? key,
+    super.key,
     required this.selected,
     required this.onChanged,
     required this.items,
@@ -15,7 +15,7 @@ class CustomRadioButtons<T> extends StatefulWidget {
     this.minWidth,
     this.spacing,
     this.textOverflow,
-  }) : super(key: key);
+  });
 
   final T? selected;
   final void Function(T? value) onChanged;

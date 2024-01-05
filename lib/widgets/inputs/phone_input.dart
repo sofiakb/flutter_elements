@@ -5,8 +5,8 @@ import 'package:sofiakb_elements/core/validators/phone_validator.dart';
 import 'custom_input.dart';
 
 class PhoneInput extends StatefulWidget {
-  PhoneInput({
-    Key? key,
+  const PhoneInput({
+    super.key,
     this.title,
     this.hintText,
     this.controller,
@@ -21,7 +21,7 @@ class PhoneInput extends StatefulWidget {
     this.onChanged,
     this.autocorrect = false,
     this.labelIcon
-  }) : super(key: key);
+  });
 
   final String? hintText;
   final String? title;

@@ -6,7 +6,6 @@ import 'package:image_picker/image_picker.dart';
 import 'package:sofiakb_elements/widgets.dart';
 import 'package:sofiakb_elements/widgets/file_selector/file_selector_utils.dart';
 
-import 'file_selector_item.dart';
 
 enum FileSelectorItemType { video, image, media, file }
 

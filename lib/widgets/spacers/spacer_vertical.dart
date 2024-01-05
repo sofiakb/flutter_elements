@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SpacerVertical extends StatelessWidget {
-  const SpacerVertical(this.size, {Key? key}) : super(key: key);
+  const SpacerVertical(this.size, {super.key});
 
   final double size;
 

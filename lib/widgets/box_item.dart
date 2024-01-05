@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../style.dart';
 
 class BoxItem extends StatelessWidget {
-  const BoxItem({Key? key, required this.child, this.backgroundColor = Colors.white}) : super(key: key);
+  const BoxItem({super.key, required this.child, this.backgroundColor = Colors.white});
 
   final Widget child;
   final Color backgroundColor;
