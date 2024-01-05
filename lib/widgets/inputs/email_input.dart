@@ -7,8 +7,8 @@ import 'package:sofiakb_elements/core/validators/email_validator.dart';
 import 'custom_input.dart';
 
 class EmailInput extends StatefulWidget {
-  EmailInput({
-    Key? key,
+  const EmailInput({
+    super.key,
     this.title,
     this.hintText,
     this.controller,
@@ -23,7 +23,7 @@ class EmailInput extends StatefulWidget {
     this.onChanged,
     this.autocorrect = false,
     this.labelIcon
-  }) : super(key: key);
+  });
 
   final String? hintText;
   final String? title;

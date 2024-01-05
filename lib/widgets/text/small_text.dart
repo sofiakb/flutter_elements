@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SmallText extends StatelessWidget {
-  const SmallText(this.text, {Key? key, this.fontSize, this.style, this.overflow, this.textAlign})
-      : super(key: key);
+  const SmallText(this.text, {super.key, this.fontSize, this.style, this.overflow, this.textAlign});
 
   final String text;
   final double? fontSize;
@@ -16,7 +15,7 @@ class SmallText extends StatelessWidget {
       text,
       overflow: overflow,
       textAlign: textAlign,
-      style: (style ?? TextStyle()).copyWith(
+      style: (style ?? const TextStyle()).copyWith(
           fontSize: fontSize ??
               (Theme.of(context).textTheme.bodyLarge!.fontSize! * 0.8)),
     );

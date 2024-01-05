@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class XAssetImage extends StatelessWidget {
-  const XAssetImage(this.path, {Key? key, this.width, this.height, this.fit})
-      : super(key: key);
+  const XAssetImage(this.path, {super.key, this.width, this.height, this.fit});
 
   final String path;
   final double? width;

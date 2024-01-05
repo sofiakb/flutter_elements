@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 
 class ScrollablePage extends StatelessWidget {
   const ScrollablePage(
-      {Key? key,
+      {super.key,
       this.children,
       this.child,
-      this.resizeToAvoidBottomInset = false})
-      : super(key: key);
+      this.resizeToAvoidBottomInset = false});
 
   final Widget? child;
   final List<Widget>? children;

@@ -7,8 +7,8 @@ import 'package:sofiakb_elements/core/validators/password_validator.dart';
 import 'custom_input.dart';
 
 class PasswordInput extends StatefulWidget {
-  PasswordInput({
-    Key? key,
+  const PasswordInput({
+    super.key,
     this.title,
     this.hintText,
     this.controller,
@@ -24,7 +24,7 @@ class PasswordInput extends StatefulWidget {
     this.autocorrect = false,
     this.verifyFormat = true,
     this.labelIcon
-  }) : super(key: key);
+  });
 
   final String? hintText;
   final String? title;

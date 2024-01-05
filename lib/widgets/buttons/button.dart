@@ -3,15 +3,14 @@ import 'package:sofiakb_elements/style.dart';
 
 class Button extends StatelessWidget {
   const Button(this.text,
-      {Key? key,
+      {super.key,
       required this.onPressed,
       this.style,
       this.loading = false,
       this.disabled = false,
       this.loader,
       this.backgroundColor,
-      this.foregroundColor, this.padding})
-      : super(key: key);
+      this.foregroundColor, this.padding});
 
   final void Function() onPressed;
   final ButtonStyle? style;
@@ -29,7 +28,7 @@ class Button extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: disabled ? null : onPressed,
-      style: (style ?? ButtonStyle()).copyWith(
+      style: (style ?? const ButtonStyle()).copyWith(
         backgroundColor: disabled
             ? null
             : MaterialStateProperty.all<Color>((backgroundColor ??

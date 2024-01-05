@@ -16,17 +16,14 @@ class ImageImport extends StatefulWidget {
   final void Function(List<XFile>)? onChanged;
 
   const ImageImport(
-      {Key? key,
+      {super.key,
       required this.child,
       this.title = "Choisir une image",
       this.source = ImageSource.gallery,
       this.maxFiles = 1,
       this.video = false,
       this.media = false,
-      this.onChanged})
-      : /*assert((fileType == FileType.custom && allowedExtensions == null) ||
-            fileType != FileType.custom),*/
-        super(key: key);
+      this.onChanged});
 
   @override
   State<ImageImport> createState() => _ImageImportState();

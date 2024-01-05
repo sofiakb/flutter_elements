@@ -3,12 +3,11 @@ import 'package:sofiakb_elements/widgets.dart';
 
 class Logo extends StatelessWidget {
   const Logo(
-      {Key? key,
+      {super.key,
       this.path,
       this.fit = BoxFit.fitWidth,
       this.height = 150,
-      this.width})
-      : super(key: key);
+      this.width});
 
   final String? path;
   final double? height;
