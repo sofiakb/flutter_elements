@@ -1,7 +1,7 @@
 name: sofiakb_elements
 description: The packages allows to easily configure your project.
 maintainer: Sofiane Akbly
-version: 1.0.0-beta.11
+version: 1.0.5
 publish_to: none
 
 environment:
