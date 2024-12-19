@@ -27,21 +27,24 @@ class CustomStreamBuilder<T> extends StatelessWidget {
 
           if (snapshot.error != null) {
             debugPrint(snapshot.error.toString());
-            debugPrintStack(stackTrace: snapshot.stackTrace, label: snapshot.error.toString());
+            debugPrintStack(
+                stackTrace: snapshot.stackTrace,
+                label: snapshot.error.toString());
             Future.delayed(
                 const Duration(seconds: 1),
-                () async => showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return const ErrorDialog();
-                    }));
+                () async => context.mounted
+                    ? showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return const ErrorDialog();
+                        })
+                    : null);
             return const SizedBox.shrink();
           }
 
           try {
             var dataArray = snapshot.data as List;
-            if (defaultEmpty &&
-                (snapshot.data == null || dataArray.isEmpty)) {
+            if (defaultEmpty && (snapshot.data == null || dataArray.isEmpty)) {
               return const NoData();
             }
           } catch (e) {

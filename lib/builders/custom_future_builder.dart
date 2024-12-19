@@ -37,18 +37,23 @@ class CustomFutureBuilder<T> extends StatelessWidget {
 
           if (snapshot.error != null && withErrorDialog) {
             debugPrint(snapshot.error.toString());
-            debugPrintStack(stackTrace: snapshot.stackTrace, label: snapshot.error.toString());
+            debugPrintStack(
+                stackTrace: snapshot.stackTrace,
+                label: snapshot.error.toString());
             Future.delayed(
                 const Duration(seconds: 1),
-                () async => showDialog(
-                    context: context,
-                    builder: (BuildContext context) =>
-                        defaultError && !useSnapshotErrorMessage
+                () async => context.mounted
+                    ? showDialog(
+                        context: context,
+                        builder: (BuildContext context) => defaultError &&
+                                !useSnapshotErrorMessage
                             ? const ErrorDialog()
                             : ErrorDialog(
                                 text: useSnapshotErrorMessage
                                     ? snapshot.error.toString()
-                                    : errorMessage ?? "Une erreur est survenue, merci de réessayer plus tard.")));
+                                    : errorMessage ??
+                                        "Une erreur est survenue, merci de réessayer plus tard."))
+                    : null);
             return const SizedBox.shrink();
           }
 

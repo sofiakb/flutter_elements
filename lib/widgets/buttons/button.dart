@@ -31,14 +31,14 @@ class Button extends StatelessWidget {
       style: (style ?? const ButtonStyle()).copyWith(
         backgroundColor: disabled
             ? null
-            : MaterialStateProperty.all<Color>((backgroundColor ??
+            : WidgetStateProperty.all<Color>((backgroundColor ??
                 style?.backgroundColor ??
                 AppStyle.instance.primaryColor) as Color),
         foregroundColor: disabled
             ? null
-            : MaterialStateProperty.all<Color>((foregroundColor ??
+            : WidgetStateProperty.all<Color>((foregroundColor ??
                 style?.foregroundColor ??
-                Colors.white) as Color) as MaterialStatePropertyAll<Color?>,
+                Colors.white) as Color) as WidgetStatePropertyAll<Color?>,
       ),
       child: Padding(
         padding: padding ?? AppStyle.paddingSymmetric(vertical: 1, horizontal: 2),

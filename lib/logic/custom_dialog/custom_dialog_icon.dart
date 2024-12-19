@@ -30,8 +30,6 @@ class CustomDialogIcon {
         return FontAwesomeIcons.lightQuestion;
       case CustomDialogIconsType.info:
         return FontAwesomeIcons.lightInfo;
-      default:
-        return null;
     }
   }
 
@@ -47,8 +45,6 @@ class CustomDialogIcon {
         return "Petite question..";
       case CustomDialogIconsType.info:
         return "Pour info..";
-      default:
-        return null;
     }
   }
 
@@ -64,8 +60,6 @@ class CustomDialogIcon {
         return Colors.purple;
       case CustomDialogIconsType.info:
         return Colors.cyan;
-      default:
-        return null;
     }
   }
 }

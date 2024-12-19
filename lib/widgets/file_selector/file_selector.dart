@@ -61,7 +61,7 @@ class _FileSelectorState extends State<FileSelector> {
   @override
   Widget build(BuildContext context) {
     if (widget.autoOpen) {
-      Future.delayed(Duration.zero, () => showBottomSelectors(context));
+      Future.delayed(Duration.zero, () => context.mounted ? showBottomSelectors(context) : null);
     }
 
     return GestureDetector(
@@ -133,7 +133,7 @@ class _FileSelectorState extends State<FileSelector> {
                 children: [
                   Container(
                     decoration: BoxDecoration(
-                      color: backgroundColor.withOpacity(.9),
+                      color: backgroundColor.withValues(alpha: .9),
                       borderRadius: borderRadius,
                     ),
                     child: Column(
