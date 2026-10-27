@@ -1,4 +1,4 @@
-library sofiakb_elements;
+library;
 
 /*******************
  ********************

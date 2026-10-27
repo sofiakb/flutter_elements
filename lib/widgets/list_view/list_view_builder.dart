@@ -29,9 +29,9 @@ class ListViewBuilder extends StatelessWidget {
     this.restorationId,
     this.clipBehavior = Clip.hardEdge,
   }) : assert(
-  (itemBuilder == null && children != null) ||
-      (itemBuilder != null && children == null),
-  "itemBuilder and children cannot be used at the same time");
+            (itemBuilder == null && children != null) ||
+                (itemBuilder != null && children == null),
+            "itemBuilder and children cannot be used at the same time");
 
   final Axis scrollDirection;
   final bool reverse;
@@ -78,7 +78,8 @@ class ListViewBuilder extends StatelessWidget {
       addAutomaticKeepAlives: addAutomaticKeepAlives,
       addRepaintBoundaries: addRepaintBoundaries,
       addSemanticIndexes: addSemanticIndexes,
-      cacheExtent: cacheExtent,
+      scrollCacheExtent:
+          cacheExtent != null ? ScrollCacheExtent.pixels(cacheExtent!) : null,
       semanticChildCount: semanticChildCount,
       dragStartBehavior: dragStartBehavior,
       keyboardDismissBehavior: keyboardDismissBehavior,

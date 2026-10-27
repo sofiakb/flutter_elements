@@ -57,25 +57,30 @@ class _CustomRadioButtonsState<T> extends State<CustomRadioButtons<T>> {
         children: [
           if (widget.title != null) _title(),
           Center(
-            child: Wrap(
-              alignment: WrapAlignment.spaceAround,
-              children: widget.items
-                  .map<Widget>((e) => Builder(builder: (context) {
-                        return ValueListenableBuilder(
-                            valueListenable: _parentWidth,
-                            builder: (context, value, child) {
-                              return SizedBox(
-                                  width: max(widget.minWidth ?? 0,
-                                      _parentWidth.value / widget.perLines),
-                                  child: Padding(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: (widget.spacing ?? 0) / 2),
-                                    child: _radioItem(e.value,
-                                        label: e.label, child: e.child),
-                                  ));
-                            });
-                      }))
-                  .toList(),
+            child: RadioGroup<T>(
+              groupValue: widget.selected,
+              onChanged: widget.onChanged,
+              child: Wrap(
+                alignment: WrapAlignment.spaceAround,
+                children: widget.items
+                    .map<Widget>((e) => Builder(builder: (context) {
+                          return ValueListenableBuilder(
+                              valueListenable: _parentWidth,
+                              builder: (context, value, child) {
+                                return SizedBox(
+                                    width: max(widget.minWidth ?? 0,
+                                        _parentWidth.value / widget.perLines),
+                                    child: Padding(
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal:
+                                              (widget.spacing ?? 0) / 2),
+                                      child: _radioItem(e.value,
+                                          label: e.label, child: e.child),
+                                    ));
+                              });
+                        }))
+                    .toList(),
+              ),
             ),
           )
         ],
@@ -97,11 +102,7 @@ class _CustomRadioButtonsState<T> extends State<CustomRadioButtons<T>> {
             label != null
                 ? Text(label, softWrap: true, overflow: widget.textOverflow)
                 : child!,
-          Radio<T>(
-            value: value,
-            groupValue: widget.selected,
-            onChanged: widget.onChanged,
-          ),
+          Radio<T>(value: value),
           if (widget.reverseLabels == true)
             label != null
                 ? Text(label, softWrap: true, overflow: widget.textOverflow)

@@ -1,7 +1,7 @@
 name: sofiakb_elements
 description: The packages allows to easily configure your project.
 maintainer: Sofiane Akbly
-version: 1.1.0
+version: 1.1.1
 publish_to: none
 
 environment:
@@ -14,10 +14,10 @@ dependencies:
   font_awesome_flutter:
     git:
       url: git@github.com:sofiakb/font_awesome_flutter.git
-      ref: 1.0.4
+      ref: 1.0.6
   image_picker: ^1.1.2
   file_picker: ^8.1.6
-  intl: ^0.19.0
+  intl: ^0.20.2
 
 assets:
   - assets/
@@ -27,3 +27,5 @@ scripts:
   release: ./scripts/release.sh
 dev_dependencies:
   flutter_lints: ^5.0.0
+  flutter_test:
+    sdk: flutter
