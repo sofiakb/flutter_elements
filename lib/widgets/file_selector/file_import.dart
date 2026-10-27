@@ -74,23 +74,34 @@ class _FileImportState extends State<FileImport> {
       );
     }
 
-    FilePickerResult? result = await FilePicker.platform.pickFiles(
-      dialogTitle: widget.title,
-      type: widget.fileType,
-      allowedExtensions: isCustom ? _allowedExtensions : null ,
-      allowMultiple: isMultiFiles,
-    );
-    if (result != null) {
-      for (int i = 0; i < result.files.length; i++) {
+    // file_picker >= 12 : pickFiles() renvoie directement la liste (vide si
+    // annulé) et pickFile() sert à la sélection unique.
+    final List<PlatformFile> files;
+    if (isMultiFiles) {
+      files = await FilePicker.pickFiles(
+        dialogTitle: widget.title,
+        type: widget.fileType,
+        allowedExtensions: isCustom ? _allowedExtensions : null,
+      );
+    } else {
+      final PlatformFile? file = await FilePicker.pickFile(
+        dialogTitle: widget.title,
+        type: widget.fileType,
+        allowedExtensions: isCustom ? _allowedExtensions : null,
+      );
+      files = file == null ? const [] : [file];
+    }
+    if (files.isNotEmpty) {
+      for (int i = 0; i < files.length; i++) {
         if (_selectedFiles.length > widget.maxFiles - 1) {
           showSnackBar(
               "Vous ne pouvez sélectionner que ${Intl.plural(widget.maxFiles, other: "fichiers", one: "fichier")}");
           break;
         } else if (!_selectedFiles
-            .every((file) => file.path != result.files[i].path)) {
+            .every((file) => file.path != files[i].path)) {
           showSnackBar("Un fichier avec le même nom existe déjà");
         } else {
-          setState(() => _selectedFiles.add(result.files[i]));
+          setState(() => _selectedFiles.add(files[i]));
           // _selectedFiles.notifyListeners();
         }
       }
